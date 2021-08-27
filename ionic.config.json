@@ -1,0 +1,7 @@
+{
+  "name": "money_planner",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
