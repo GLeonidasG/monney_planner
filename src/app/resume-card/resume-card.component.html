@@ -1,0 +1,39 @@
+<ion-card>
+  <div id="resume-card-component">
+    <div class="card-resume-text">
+      <p>Total de entradas:</p>
+      <p class="resume-values">R$ {{ getTotalIncome }}</p>
+    </div>
+    <div class="card-resume-text">
+      <p>Total de saídas:</p>
+      <p class="resume-values">R$ {{ getTotalOutcome }}</p>
+    </div>
+    <div class="card-resume-text">
+      <p>Balanço total:</p>
+      <p class="resume-values">R$ {{ getTotalBalance }}</p>
+    </div>
+
+    <div id="balance-progress-container">
+      <ion-progress-bar
+        mode="ios"
+        color="{{ resumeStatus.color }}"
+        value="{{ getRawPercentage }}"
+        ><ion-text >{{ getPercentage }}%</ion-text></ion-progress-bar
+      >
+    </div>
+
+    <div class="resume-feedback">
+      <ion-icon
+        name="{{ resumeStatus.icon }}"
+        color="{{ resumeStatus.color }}"
+      ></ion-icon>
+      <p>
+        Você está
+        <ion-text color="{{ resumeStatus.color }}">{{
+          resumeStatus.status
+        }}</ion-text>
+        do que recebeu
+      </p>
+    </div>
+  </div>
+</ion-card>
