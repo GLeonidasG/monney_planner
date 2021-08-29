@@ -1,0 +1,49 @@
+#history-container {
+  background-color: white;
+  h2 {
+    color: #303030;
+  }
+  padding: 15px;
+  #entry-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    #icon-container {
+      font-size: 40px;
+      width: 50px;
+      margin-right: 15px;
+      flex: 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #entry-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      font-size: 16px;
+      #entry-type-date {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        div h3 {
+          color: #303030;
+        }
+      }
+      h4 {
+        color: #303030;
+        margin: 5px;
+      }
+      p {
+        margin: 5px;
+      }
+    }
+  }
+}

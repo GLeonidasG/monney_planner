@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: flex-start;
     ion-card {
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -51,6 +52,9 @@
 #container {
   background-color: var(--ion-color-secondary);
   color: #303030;
+  // display: flex;
+  // flex: 1;
+  // flex-direction: column;
   height: 100%;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;

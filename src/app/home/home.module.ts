@@ -6,10 +6,11 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { ResumeCardComponent } from '../resume-card/resume-card.component';
+import { HistoryCardComponent } from '../history-card/history-card.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
 
-  declarations: [HomePage, ResumeCardComponent],
+  declarations: [HomePage, ResumeCardComponent, HistoryCardComponent],
 })
 export class HomePageModule {}
