@@ -1,20 +1,42 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="primary">
+  <div id="header">
+    <div id="menu-header">
+      <ion-icon name="menu"></ion-icon>
+    </div>
+
+    <div id="main-resume">
+      <ion-text>Olá Fulano</ion-text>
+      <ion-text>Seu balanço atual:</ion-text>
+      <h2>R$ 4.000,00</h2>
+    </div>
+
+    <div id="quick-actions">
+      <ion-card color="secondary">
+        <div>
+          <ion-icon name="receipt"></ion-icon>
+        </div>
+        <p>Novo lançamento</p>
+      </ion-card>
+      <ion-card color="secondary">
+        <div>
+          <ion-icon name="trending-up-outline"></ion-icon>
+        </div>
+        <p>Simular</p>
+      </ion-card>
+    </div>
+  </div>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+    <app-resume-card></app-resume-card>
+
   </div>
 </ion-content>
