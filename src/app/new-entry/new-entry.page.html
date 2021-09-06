@@ -1,0 +1,71 @@
+<ion-content color="primary">
+  <div id="page">
+    <div id="page-header">
+      <ion-icon name="arrow-back"></ion-icon>
+      <ion-text> Novo lançamento </ion-text>
+      <div class="filler"></div>
+    </div>
+    <div id="page-container">
+      <div class="entry-form">
+        <div>
+          <div class="label-container">
+            <ion-icon name="information-outline"></ion-icon>
+            <ion-label position="stacked">Título do lançamento</ion-label>
+          </div>
+          <div class="input-container">
+            <ion-input placeholder="Título do lançamento"></ion-input>
+          </div>
+        </div>
+        <div>
+          <div class="label-container">
+            <ion-icon name="cash-outline"></ion-icon>
+            <ion-label position="stacked" inputmode="decimal" type="number"
+              >Valor do lançamento</ion-label
+            >
+          </div>
+          <div class="input-container">
+            <app-currency-field
+              [precision]="precision"
+              [amount]="''"
+              (amountEntered)="amountChanged($event)"
+            ></app-currency-field>
+          </div>
+        </div>
+        <div>
+          <div class="label-container">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-label position="stacked">Data de lançamento</ion-label>
+          </div>
+          <div class="input-container">
+            <ion-datetime
+              display-format="DD/MM/YYYY"
+              placeholder="Data de lançamento"
+            ></ion-datetime>
+          </div>
+        </div>
+        <div>
+          <div class="label-container">
+            <ion-icon name="swap-vertical-outline"></ion-icon>
+            <ion-label position="stacked">Tipo de lançamento</ion-label>
+          </div>
+          <div class="input-container">
+            <ion-radio-group value="credito">
+              <ion-item color="secondary">
+                <ion-label color="dark">Crédito</ion-label>
+                <ion-radio slot="start" value="credito"></ion-radio>
+              </ion-item>
+
+              <ion-item color="secondary">
+                <ion-label color="dark">Débito</ion-label>
+                <ion-radio slot="start" value="debito"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </div>
+        </div>
+        <div>
+          <ion-button expand="block" shape="round" >Registrar</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

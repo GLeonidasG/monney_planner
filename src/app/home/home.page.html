@@ -11,25 +11,27 @@
     </div>
 
     <div id="quick-actions">
-      <ion-card color="secondary">
-        <div>
-          <ion-icon name="receipt"></ion-icon>
+      <ion-card color="secondary" href="new-entry" >
+        <div id="card-container" >
+          <div>
+            <ion-icon name="receipt"></ion-icon>
+          </div>
+          <p>Novo lançamento</p>
         </div>
-        <p>Novo lançamento</p>
       </ion-card>
-      <ion-card color="secondary">
-        <div>
-          <ion-icon name="trending-up-outline"></ion-icon>
+      <ion-card color="secondary" >
+        <div id="card-container" >
+          <div>
+            <ion-icon name="trending-up-outline"></ion-icon>
+          </div>
+          <p>Simular</p>
         </div>
-        <p>Simular</p>
       </ion-card>
     </div>
   </div>
 
   <div id="container">
-
     <app-resume-card></app-resume-card>
     <app-history-card></app-history-card>
-
   </div>
 </ion-content>

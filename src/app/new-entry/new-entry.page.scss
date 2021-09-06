@@ -1,0 +1,77 @@
+#page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+#page-header {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 25px;
+  div ion-icon {
+    font-size: 35px;
+  }
+  .filler {
+    width: 35px;
+  }
+}
+
+#page-container {
+  padding: 15px;
+  display: flex;
+  flex: 5;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: var(--ion-color-secondary);
+  color: #303030;
+}
+
+#page-container .entry-form {
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  div {
+    width: 100%;
+    .label-container{
+      font-size: 18px;
+      ion-icon {
+        font-size: 18px;
+        margin-right: 10px
+      }
+    }
+    .input-container {
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-width: 2px;
+      border-radius: 15px;
+      border-color: #c0c0c0;
+      border-style: solid;
+    }
+  }
+}
+
+.input-container ion-input {
+  margin-left: 5px;
+}
+
+.input-container app-currency-field {
+  background-color: transparent;
+  color: var(--ion-color-dark);
+}
+.input-container  ion-radio-group ion-item {
+  border-style: none;
+  border-radius: 15px;
+}
+.input-container  ion-radio-group ion-item ion-label{
+  color: var(--ion-color-dark);
+}

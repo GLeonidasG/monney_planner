@@ -9,7 +9,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    ion-card {
+
+    ion-card #card-container{
       border-radius: 10px;
       display: flex;
       flex-direction: column;
@@ -20,6 +21,7 @@
       width: 85px;
       height: 110px;
       color: #303030;
+      cursor: pointer;
       p{
         word-break: keep-all;
         text-align: center;
@@ -37,6 +39,9 @@
         color: white;
         font-size: 23px;
       }
+    }
+    ion-card :hover {
+      background-color: #c0c0c0;
     }
   }
 
