@@ -6,14 +6,15 @@
       <div class="filler"></div>
     </div>
     <div id="page-container">
-      <div class="entry-form">
+      <form class="entry-form">
+        {{ entry | json}}
         <div>
           <div class="label-container">
             <ion-icon name="information-outline"></ion-icon>
             <ion-label position="stacked">Título do lançamento</ion-label>
           </div>
           <div class="input-container">
-            <ion-input placeholder="Título do lançamento"></ion-input>
+            <ion-input [(ngModel)]="entry.title" name="entryTitle" placeholder="Título do lançamento" class="ng-invalid" ></ion-input>
           </div>
         </div>
         <div>
@@ -38,6 +39,8 @@
           </div>
           <div class="input-container">
             <ion-datetime
+              [(ngModel)]="entry.entryDate"
+              name="entryDate"              
               display-format="DD/MM/YYYY"
               placeholder="Data de lançamento"
             ></ion-datetime>
@@ -49,7 +52,7 @@
             <ion-label position="stacked">Tipo de lançamento</ion-label>
           </div>
           <div class="input-container">
-            <ion-radio-group value="credito">
+            <ion-radio-group value="credito" [(ngModel)]="entry.entryType" name="entryType" >
               <ion-item color="secondary">
                 <ion-label color="dark">Crédito</ion-label>
                 <ion-radio slot="start" value="credito"></ion-radio>
@@ -63,9 +66,9 @@
           </div>
         </div>
         <div>
-          <ion-button expand="block" shape="round" >Registrar</ion-button>
+          <ion-button expand="block" shape="round" (click)="handleSubmit()" >Registrar</ion-button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </ion-content>

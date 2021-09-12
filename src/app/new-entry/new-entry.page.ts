@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { EntryModel } from '../models/entry-model';
+import { EntriesService } from '../services/entries.service';
 
 @Component({
   selector: 'app-new-entry',
@@ -6,18 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-entry.page.scss'],
 })
 export class NewEntryPage implements OnInit {
-
-  amount = 0;
-
   precision = 2;
 
-  constructor() { }
+  entry: EntryModel = new EntryModel();
+
+  constructor(private entryServicve: EntriesService) { }
 
   ngOnInit() {
   }
 
   amountChanged(event: number) {
-    this.amount = event;
+    this.entry.setValue = event / Math.pow(10, this.precision);
+  }
+
+  handleSubmit() {
+    this.entryServicve.create(this.entry.getEntry());
+    history.back();
   }
 
 }

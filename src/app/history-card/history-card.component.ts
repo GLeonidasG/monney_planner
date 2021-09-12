@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EntryModel } from '../models/entry-model';
+import { EntriesService } from '../services/entries.service';
 
 @Component({
   selector: 'app-history-card',
@@ -7,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryCardComponent implements OnInit {
 
-  constructor() { }
+  entry: EntryModel[] = [];
+  constructor(private entriesService: EntriesService) { }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    const entries = await this.entriesService.list();
+    this.entry = entries;
+  }
 
 }
