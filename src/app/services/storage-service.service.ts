@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { ENTRY_STORAGE_KEY } from '../constants';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +14,14 @@ export class StorageService {
 
   public async setValue(key: string, value: any): Promise<void> {
     if (this._storage) {
-      await this._storage.set(key, value);
+      await this._storage.set(key, JSON.stringify(value));
     }
   }
 
   public async getValue(key: string): Promise<any> {
     if (this._storage) {
-      return await this._storage.get(key);
+      const value = await this._storage.get(key);
+      return JSON.parse(value);
     } else {
       return '[]';
     }

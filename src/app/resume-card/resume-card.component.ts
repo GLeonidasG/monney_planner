@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { EntryModel } from '../models/entry-model';
 
 @Component({
   selector: 'app-resume-card',
@@ -6,37 +7,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume-card.component.scss'],
 })
 export class ResumeCardComponent implements OnInit {
-  private totalIncome = 5000;
-  private totalOutcome = 1000;
-  private totalBalance = this.totalIncome - this.totalOutcome;
-  private percentage = (this.totalOutcome * 100) / this.totalIncome;
+  @Input() incomes = 0;
+  @Input() outcomes = 0;
+
+  private totalBalance = this.incomes - this.outcomes;
 
   constructor() {}
+  ngOnInit() {}
 
   public get getPercentage(): string {
-    return this.percentage.toFixed(1);
+    const percentage = (this.outcomes * 100) / this.incomes;
+    return percentage.toFixed(1);
   }
 
   public get getRawPercentage(): number {
-    return this.percentage / 100;
+    return Number(this.getTotalOutcome) / Number(this.getTotalIncome);
   }
 
   public get getTotalIncome(): string {
-    return this.totalIncome.toFixed(2);
+    return this.incomes.toFixed(2);
   }
 
   public get getTotalOutcome(): string {
-    return this.totalOutcome.toFixed(2);
+    return this.outcomes.toFixed(2);
   }
 
   public get getTotalBalance(): string {
-    return this.totalBalance.toFixed(2);
+    return (this.incomes - this.outcomes).toFixed(2);
   }
 
   public get resumeStatus() {
-    return this.percentage < 45
+    const percentage = (this.outcomes * 100) / this.incomes;
+    return percentage < 45
       ? { status: 'gastando menos', color: 'success', icon: 'thumbs-up-sharp' }
-      : this.percentage > 65
+      : percentage > 65
       ? { status: 'gastando mais', color: 'danger', icon: 'thumbs-down-sharp' }
       : {
           status: 'començando a gastar mais',
@@ -44,6 +48,4 @@ export class ResumeCardComponent implements OnInit {
           icon: 'warning',
         };
   }
-
-  ngOnInit() {}
 }

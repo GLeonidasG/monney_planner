@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EntryModel } from '../models/entry-model';
 import { EntriesService } from '../services/entries.service';
 
@@ -12,18 +13,18 @@ export class NewEntryPage implements OnInit {
 
   entry: EntryModel = new EntryModel();
 
-  constructor(private entryServicve: EntriesService) { }
+  constructor(private entryServicve: EntriesService, private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   amountChanged(event: number) {
     this.entry.setValue = event / Math.pow(10, this.precision);
   }
 
-  handleSubmit() {
-    this.entryServicve.create(this.entry.getEntry());
-    history.back();
+  async handleSubmit() {
+    await this.entryServicve.create(this.entry.getEntry());
+    this.entry = new EntryModel();
+    this.router.navigateByUrl('/home');
+    // this.router.navigate(['/home'], { replaceUrl: true });
   }
-
 }

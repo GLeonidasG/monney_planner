@@ -3,6 +3,11 @@
   h2 {
     color: #303030;
   }
+  #empty-entry{
+    h2 {
+      color: #909090
+    }
+  }
   padding: 15px;
   #entry-container {
     display: flex;

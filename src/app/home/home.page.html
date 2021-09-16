@@ -6,8 +6,8 @@
 
     <div id="main-resume">
       <ion-text>Olá Fulano</ion-text>
-      <ion-text>Seu balanço atual:</ion-text>
-      <h2>R$ 4.000,00</h2>
+      <ion-text>Seu saldo atual:</ion-text>
+      <h2>R$ {{currentBalance}}</h2>
     </div>
 
     <div id="quick-actions">
@@ -19,7 +19,7 @@
           <p>Novo lançamento</p>
         </div>
       </ion-card>
-      <ion-card color="secondary" >
+      <ion-card color="secondary" (click)="simulate()" >
         <div id="card-container" >
           <div>
             <ion-icon name="trending-up-outline"></ion-icon>
@@ -31,7 +31,7 @@
   </div>
 
   <div id="container">
-    <app-resume-card></app-resume-card>
-    <app-history-card></app-history-card>
+    <div *ngIf="entries && entries.length" ><app-resume-card [incomes]="getIncomes" [outcomes]="getOutcomes" ></app-resume-card></div>
+    <app-history-card [entries]="getEntries" ></app-history-card>
   </div>
 </ion-content>
