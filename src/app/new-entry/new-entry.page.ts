@@ -21,7 +21,8 @@ export class NewEntryPage implements OnInit {
     this.entry.setValue = event / Math.pow(10, this.precision);
   }
 
-  async handleSubmit() {
+  async handleSubmit(form) {
+    console.log(form)
     await this.entryServicve.create(this.entry.getEntry());
     this.entry = new EntryModel();
     this.router.navigateByUrl('/home');

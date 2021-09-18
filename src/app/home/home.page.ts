@@ -28,13 +28,17 @@ export class HomePage implements OnInit {
   constructor(private entriesService: EntriesService) {}
 
   async ngOnInit() {
+    await this.fetchFromStorage();
+  }
+
+  private fetchFromStorage = async () => {
     const entries = await this.entriesService.list();
     const incomes = await this.entriesService.listCredits();
     const outcomes = await this.entriesService.listDebits();
     this.entries = entries;
     this.incomes = incomes;
     this.outcomes = outcomes;
-  }
+  };
 
   public get getIncomes() {
     return this.incomes.length === 0
@@ -69,6 +73,7 @@ export class HomePage implements OnInit {
     console.log('simulating...');
     await this.entriesService.create(mockDebit.getEntry());
     await this.entriesService.create(mockCredit.getEntry());
+    await this.fetchFromStorage();
     console.log('%c mocked data created!', 'background: #222; color: #bada55');
   }
 }

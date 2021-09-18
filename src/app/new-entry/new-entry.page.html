@@ -1,12 +1,14 @@
 <ion-content color="primary">
   <div id="page">
     <div id="page-header">
-      <ion-icon name="arrow-back"></ion-icon>
+      <ion-nav-button [routerLink]="['/home']" >
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-nav-button>
       <ion-text> Novo lançamento </ion-text>
       <div class="filler"></div>
     </div>
     <div id="page-container">
-      <form class="entry-form">
+      <form class="entry-form" #form="ngForm" (ngSubmit)="handleSubmit(form)" >
         {{ entry | json}}
         <div>
           <div class="label-container">
@@ -66,7 +68,7 @@
           </div>
         </div>
         <div>
-          <ion-button expand="block" shape="round" (click)="handleSubmit()" >Registrar</ion-button>
+          <ion-button type="submit" expand="block" shape="round" >Registrar</ion-button>
         </div>
       </form>
     </div>
